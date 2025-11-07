@@ -13,23 +13,27 @@ The pipeline integrates physics-based molecular encoding with modern ML techniqu
 - **Coulomb Matrix Descriptors** – Represents each molecule as a rotation- and permutation-invariant matrix capturing interatomic electrostatic interactions.  
 - **Reaction Matrices** – Constructs block-diagonal reaction matrices that account for stoichiometric coefficients of reactants and products.  
 - **Spectral Feature Extraction** – Computes and sorts eigenvalues of each reaction matrix to obtain fixed-length, invariant feature vectors.  
-- **Learning and Prediction** – Trains **Random Forest** and **XGBoost** models for **binary classification** (density sensitive vs. insensitive).
+- **Learning and Prediction** – Trains **Decision Tree**, **Random Forest** and **XGBoost** models for **binary classification** (density sensitive vs. insensitive).
 
 
 ## 📁 Project Structure
 
 ```
-density_sensitivity/
-├── main.py                      # Main pipeline orchestration
-├── generate_cm.py              # Coulomb matrix generation
-├── diagonalize_matrices.py     # Matrix diagonalization
-├── pad_and_metadata.py         # Feature standardization
-├── preprocess.py               # Data preprocessing utilities (combining matrices) 
-├── train_binary_classifier.py  # Binary classification training
-├── train_random_forest.py      # Regression model training
-├── requirements.txt            # Python dependencies
-├── Descriptor1/                # data and Analysis for descriptor 1 
-└── validation/                 # Validation scripts
+density_sensitivity-classification/
+├── Descriptor1/
+│ ├── Descriptor1_complete_features.npy             — feature matrix (reaction eigenvalues + meta data)
+│ ├── Descriptor1_complete_targets.npy              — target labels for reactions ( density sensitivity)
+│ ├── descriptor1_model.ipynb                       — model training and evaluation notebook
+│ └── dimensionality_reduction.ipynb                — PCA/UMAP/tsne analysis
+│
+├── diagonalize_matrices.py                         — computes eigenvalues of reaction matrices
+├── generate_cm.py                                  — functions to construct Coulomb matrices for molecular systems
+├── pad_and_metadata.py                             — pads eigenvalue vectors and appends metadata
+├── preprocess.py                                   — util functions for preprocessing such as combining matrices
+├── main.py                                         — orchestrates full descriptor generation workflow
+├── final_dict_allsets.pkl                          — dictionary containing coulomb matrices for all systems of the GMTKN55
+├── requirements.txt                                — Python dependencies
+└── README.md —            
 ```
 
 ## 🚀 Quick Start
@@ -38,8 +42,8 @@ density_sensitivity/
 
 ```bash
 # Clone the repository
-git clone https://github.com/MMynampati/density_sensitivity
-cd density_sensitivity
+git clone https://github.com/nedamhs/density-sensitivity-classification.git
+cd density-sensitivity-classification
 
 # Install dependencies
 pip install -r requirements.txt
