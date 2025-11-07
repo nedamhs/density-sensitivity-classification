@@ -13,7 +13,7 @@ The pipeline integrates physics-based molecular encoding with modern ML techniqu
 - **Coulomb Matrix Descriptors** – Represents each molecule as a rotation- and permutation-invariant matrix capturing interatomic electrostatic interactions.  
 - **Reaction Matrices** – Constructs block-diagonal reaction matrices that account for stoichiometric coefficients of reactants and products.  
 - **Spectral Feature Extraction** – Computes and sorts eigenvalues of each reaction matrix to obtain fixed-length, invariant feature vectors.  
-- **Learning and Prediction** – Trains **Random Forest** and **XGBoost** models for **binary classification** (density sensitive vs. insensitive).
+- **Learning and Prediction** – Trains **Decision Tree**, **Random Forest** and **XGBoost** models for **binary classification** (density sensitive vs. insensitive).
 
 
 ## 📁 Project Structure
