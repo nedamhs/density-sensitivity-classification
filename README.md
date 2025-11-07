@@ -19,17 +19,21 @@ The pipeline integrates physics-based molecular encoding with modern ML techniqu
 ## 📁 Project Structure
 
 ```
-density_sensitivity/
-├── main.py                      # Main pipeline orchestration
-├── generate_cm.py              # Coulomb matrix generation
-├── diagonalize_matrices.py     # Matrix diagonalization
-├── pad_and_metadata.py         # Feature standardization
-├── preprocess.py               # Data preprocessing utilities (combining matrices) 
-├── train_binary_classifier.py  # Binary classification training
-├── train_random_forest.py      # Regression model training
-├── requirements.txt            # Python dependencies
-├── Descriptor1/                # data and Analysis for descriptor 1 
-└── validation/                 # Validation scripts
+density_sensitivity-classification/
+├── Descriptor1/
+│ ├── Descriptor1_complete_features.npy — feature matrix (Coulomb/eigenvalue data)
+│ ├── Descriptor1_complete_targets.npy — target labels for reactions
+│ ├── descriptor1_model.ipynb — model training and evaluation notebook
+│ └── dimensionality_reduction.ipynb — PCA/UMAP feature analysis
+│
+├── diagonalize_matrices.py — computes eigenvalues of reaction matrices
+├── generate_cm.py — functions to construct Coulomb matrices for molecular systems
+├── pad_and_metadata.py — pads eigenvalue vectors and appends metadata
+├── preprocess.py — util functions for preprocessing such as combining matrices
+├── main.py — orchestrates full descriptor generation workflow
+├── final_dict_allsets.pkl — dictionary containing coulomb matrices for all systems of the GMTKN55
+├── requirements.txt — Python dependencies
+└── README.md — project overview and documentation
 ```
 
 ## 🚀 Quick Start
