@@ -21,19 +21,19 @@ The pipeline integrates physics-based molecular encoding with modern ML techniqu
 ```
 density_sensitivity-classification/
 ├── Descriptor1/
-│ ├── Descriptor1_complete_features.npy — feature matrix (Coulomb/eigenvalue data)
-│ ├── Descriptor1_complete_targets.npy — target labels for reactions
-│ ├── descriptor1_model.ipynb — model training and evaluation notebook
-│ └── dimensionality_reduction.ipynb — PCA/UMAP feature analysis
+│ ├── Descriptor1_complete_features.npy             — feature matrix (reaction eigenvalues + meta data)
+│ ├── Descriptor1_complete_targets.npy              — target labels for reactions ( density sensitivity)
+│ ├── descriptor1_model.ipynb                       — model training and evaluation notebook
+│ └── dimensionality_reduction.ipynb                — PCA/UMAP/tsne analysis
 │
-├── diagonalize_matrices.py — computes eigenvalues of reaction matrices
-├── generate_cm.py — functions to construct Coulomb matrices for molecular systems
-├── pad_and_metadata.py — pads eigenvalue vectors and appends metadata
-├── preprocess.py — util functions for preprocessing such as combining matrices
-├── main.py — orchestrates full descriptor generation workflow
-├── final_dict_allsets.pkl — dictionary containing coulomb matrices for all systems of the GMTKN55
-├── requirements.txt — Python dependencies
-└── README.md — project overview and documentation
+├── diagonalize_matrices.py                         — computes eigenvalues of reaction matrices
+├── generate_cm.py                                  — functions to construct Coulomb matrices for molecular systems
+├── pad_and_metadata.py                             — pads eigenvalue vectors and appends metadata
+├── preprocess.py                                   — util functions for preprocessing such as combining matrices
+├── main.py                                         — orchestrates full descriptor generation workflow
+├── final_dict_allsets.pkl                          — dictionary containing coulomb matrices for all systems of the GMTKN55
+├── requirements.txt                                — Python dependencies
+└── README.md —            
 ```
 
 ## 🚀 Quick Start
