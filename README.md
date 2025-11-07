@@ -42,8 +42,8 @@ density_sensitivity-classification/
 
 ```bash
 # Clone the repository
-git clone https://github.com/MMynampati/density_sensitivity
-cd density_sensitivity
+git clone https://github.com/nedamhs/density-sensitivity-classification.git
+cd density-sensitivity-classification
 
 # Install dependencies
 pip install -r requirements.txt
