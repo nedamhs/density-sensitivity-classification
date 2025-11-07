@@ -33,7 +33,7 @@ from typing import List, Dict, Tuple
 from generate_cm import create_cm
 from preprocess import parse_ref_file, combine_cm
 from diagonalize_matrices import diagonalize_matrix, analyze_eigenvalue_distributions, create_ml_dataframe
-from pad_and_metadata import pad_eigenvalue_arrays, parse_info_file, get_product_properties, create_final_features
+from pad_and_metadata import pad_eigenvalue_arrays, parse_info_file, get_product_properties
 
 def main():
     """
@@ -243,35 +243,6 @@ def main():
     np.save("Descriptor1/Descriptor1_complete_features.npy", feature_matrix)
     np.save("Descriptor1/Descriptor1_complete_targets.npy", targets)
     print("✅ Saved complete dataset: Descriptor1_complete_features.npy, Descriptor1_complete_targets.npy")
-
-
-    # OPTIONAL *** BALANCE THE DATASET
-   # Create a 1:1 balanced dataset
-    num_sensitive = np.sum(targets)
-    num_not_sensitive = len(targets) - num_sensitive
-    min_class_size = min(num_sensitive, num_not_sensitive)
-
-    sensitive_indices = np.where(targets == 1)[0]
-    not_sensitive_indices = np.where(targets == 0)[0]
-
-    #randomly sample sensitive indices to match the number of not sensitive indices
-    sensitive_indices = np.random.choice(sensitive_indices, size=min_class_size, replace=False)
-    not_sensitive_indices = np.random.choice(not_sensitive_indices, size=min_class_size, replace=False)
-
-    #combine indices
-    balanced_indices = np.concatenate([sensitive_indices, not_sensitive_indices])
-    balanced_feature_matrix = feature_matrix[balanced_indices]
-    balanced_targets = targets[balanced_indices]
-
-    print(f"Balanced feature matrix shape: {balanced_feature_matrix.shape}")
-    print(f"Balanced targets shape: {balanced_targets.shape}")
-    print(f"Class distribution: {np.sum(balanced_targets)} sensitive, {len(balanced_targets) - np.sum(balanced_targets)} not sensitive")
-
-    #save balanced dataset
-    np.save("Descriptor1/Descriptor1_balanced_features.npy", balanced_feature_matrix)
-    np.save("Descriptor1/Descriptor1_balanced_targets.npy", balanced_targets)
-    print("✅ Saved balanced dataset: Descriptor1_balanced_features.npy, Descriptor1_balanced_targets.npy")
-    
     
     
     print(f"\nPipeline completed!")
