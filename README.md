@@ -86,13 +86,24 @@ The dataset exhibits a moderate class imbalance (~33% density-sensitive vs. ~67%
 ## Resources
 - <https://hunterheidenreich.com/posts/molecular-descriptor-coulomb-matrix/#the-coulomb-matrix>
 - <https://goerigk.chemistry.unimelb.edu.au/research/the-gmtkn55-database>
-- <https://pubs.acs.org/doi/10.1021/acs.jctc.4c00689>
 
 ## Reference
 Goerigk, L.; Hansen, A.; Bauer, C.; Ehrlich, S.; Najibi, A.; Grimme, S.  
 *A look at the density functional theory zoo with the advanced GMTKN55 database for general main group thermochemistry, kinetics and noncovalent interactions.*  
 **Phys. Chem. Chem. Phys.** 2017, 19, 32184–32215.  
 DOI: [10.1039/C7CP04913G](https://doi.org/10.1039/C7CP04913G)
+
+Sim, E.; Song, S.; Burke, K.  
+*Quantifying density errors in DFT.*  
+**J. Phys. Chem. Lett.** 2018, 9 (22), 6385–6392.  
+DOI: [10.1021/acs.jpclett.8b02855](https://doi.org/10.1021/acs.jpclett.8b02855)
+
+Lee, M.; Kim, B.; Sim, M.; Sogal, M.; Kim, Y.; Yu, H.; Burke, K.; Sim, E.  
+*Correcting dispersion corrections with density-corrected DFT.*  
+**J. Chem. Theory Comput.** 2024, 20 (16), 7155–7167.  
+DOI: [10.1021/acs.jctc.4c00689](https://doi.org/10.1021/acs.jctc.4c00689)
+
+
 
 
  
