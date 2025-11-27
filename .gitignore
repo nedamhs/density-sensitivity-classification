@@ -62,3 +62,4 @@ Descriptor1/Descriptor1_complete_features_fixed.npy
 Descriptor1/Descriptor1_complete_targets_fixed.npy
 Descriptor1/Descriptor1_complete_features_stats.npy
 Descriptor1/Descriptor1_complete_features_new.npy
+descriptor1_model.ipynb
