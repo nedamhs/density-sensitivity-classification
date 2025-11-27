@@ -82,7 +82,6 @@ The dataset exhibits a moderate class imbalance (~33% density-sensitive vs. ~67%
 
 - Burke Group @ UCI
 - Goerigk Research Group @ university of Melbourne
-- Stephan Grimme's group @ university of Bonn
 
 ## Resources
 - <https://hunterheidenreich.com/posts/molecular-descriptor-coulomb-matrix/#the-coulomb-matrix>
