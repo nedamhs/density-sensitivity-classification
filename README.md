@@ -9,8 +9,8 @@ Density-sensitive reactions are those where energy errors are driven by inaccura
 
 The pipeline integrates physics-based molecular encoding with modern ML techniques:
 
-- **Molecular Parsing** – Reads and parses molecular geometries from `.xyz` files.  
-- **Coulomb Matrix Descriptors** – Represents each molecule as a rotation- and permutation-invariant matrix capturing interatomic electrostatic interactions.  
+-  **Molecular Parsing** – Uses the *Atomic Simulation Environment (ASE)* to read `.xyz` files and construct `Atoms` objects containing atomic numbers and 3D coordinates. These standardized structures serve as inputs for Molecular descriptor generation.
+- **Coulomb Matrix Molecular Descriptor** – Converts each ASE `Atoms` object into a rotation- and permutation-invariant Coulomb matrix molecular descriptor using the `dscribe` implementation. This descriptor captures interatomic electrostatic interactions in a fixed numerical representation. 
 - **Reaction Matrices** – Constructs block-diagonal reaction matrices that account for stoichiometric coefficients of reactants and products.  
 - **Spectral Feature Extraction** – Computes and sorts eigenvalues of each reaction matrix to obtain fixed-length, invariant feature vectors.  
 - **Learning and Prediction** – Trains **Decision Tree**, **Random Forest** and **XGBoost** models for **binary classification** (density sensitive vs. insensitive).
@@ -57,6 +57,9 @@ pip install -r requirements.txt
 python main.py
 
 ```
+
+## Dependencies
+ASE, dscribe, NumPy, SciPy, scikit-learn, XGBoost, Matplotlib, Seaborn.
   
 ## 📈 Model Performance
 
@@ -73,10 +76,12 @@ The dataset exhibits a moderate class imbalance (~33% density-sensitive vs. ~67%
 
 ---
 
+
 ## 📝 Data 
 
 - GMTKN55 database
-- SWARM dataset 
+- SWARM dataset
+  
 
 ## 🙏 Acknowledgments
 
