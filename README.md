@@ -15,6 +15,8 @@ The pipeline integrates physics-based molecular encoding with modern ML techniqu
 - **Spectral Feature Extraction** – Computes and sorts eigenvalues of each reaction matrix to obtain fixed-length, invariant feature vectors.  
 - **Learning and Prediction** – Trains **Decision Tree**, **Random Forest** and **XGBoost** models for **binary classification** (density sensitive vs. insensitive).
 
+For a full summary of methods and results, see the [project poster](Density_sensitivity_classification_poster.pdf).
+
 
 ## 📁 Project Structure
 
@@ -24,16 +26,18 @@ density_sensitivity-classification/
 │   ├── Descriptor1_complete_features.npy           — feature matrix (reaction eigenvalues + metadata)
 │   ├── Descriptor1_complete_targets.npy            — target labels for reactions (density sensitivity)
 │
-├── descriptor1_model.ipynb                        — model training & evaluation notebook 
-├── dimensionality_reduction.ipynb                 — PCA/UMAP/t-SNE notebook
-├── diagonalize_matrices.py                        — computes eigenvalues of reaction matrices
-├── generate_cm.py                                 — constructs Coulomb matrices
-├── pad_and_metadata.py                            — pads eigenvalue vectors & attaches metadata
-├── preprocess.py                                   — utility preprocessing functions
-├── main.py                                        — runs full descriptor-generation workflow
-├── final_dict_allsets.pkl                         — Coulomb matrices for all GMTKN55 systems
-├── requirements.txt                               — Python dependencies
-└── README.md                                      — documentation
+├── descriptor1_model.ipynb                         — model training and evaluation notebook
+├── dimensionality_reduction.ipynb                  — PCA, UMAP, and t-SNE notebook
+├── diagonalize_matrices.py                         — computes eigenvalues of reaction matrices
+├── generate_cm.py                                  — constructs Coulomb matrices
+├── pad_and_metadata.py                             — pads eigenvalue vectors and attaches metadata
+├── preprocess.py                                   — preprocessing utility functions
+├── main.py                                         — full descriptor generation workflow
+├── final_dict_allsets.pkl                          — Coulomb matrices for all GMTKN55 systems
+├── Density_sensitivity_classification_poster.pdf   — project poster
+├── requirements.txt                                — Python dependencies
+└── README.md                                       — documentation
+
       
 ```
 
