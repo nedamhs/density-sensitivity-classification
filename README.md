@@ -1,6 +1,6 @@
 # Density Sensitivity ML Pipeline
 
-A machine learning pipeline for predicting density sensitivity in chemical reactions using molecular strucuture and Coulomb matrices.
+A machine learning pipeline for classifying density sensitivity in DFT chemical reactions, enabling identification of reactions where density-corrected DFT (DC-DFT) may be required.
 
 ## 🔬 Project Overview
 
