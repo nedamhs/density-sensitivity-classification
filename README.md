@@ -1,13 +1,16 @@
 # Density Sensitivity ML Pipeline
 
-A machine learning pipeline for classifying density sensitivity in DFT chemical reactions, enabling identification of reactions where density-corrected DFT (DC-DFT) may be required.
+A machine learning pipeline for binary classification of density sensitivity ($\tilde{s} \ge 2$ vs. $\tilde{s} < 2$) in GMTKN55 benchmark reactions, identifying cases where density-corrected DFT (DC-DFT) may be required.
+
+Computing s̃ requires HF (O(N^4)) and LDA (O(N^3)) densities. We instead use machine learning as a surrogate to classify GMTKN55 reactions as density-sensitive (s̃ ≥ 2) without explicitly evaluating s̃.
+
 
 ## 🔬 Project Overview
 
 This project implements a complete ML pipeline to predict whether chemical reactions are sensitive to changes in electron density.  
 Density-sensitive reactions are those where energy errors are driven by inaccuracies in the electron density, while density-insensitive reactions are those where errors arise primarily from the approximate functional form.
 
-The pipeline integrates physics-based molecular encoding with modern ML techniques:
+The pipeline integrates physics-informed molecular encoding with modern ML techniques:
 
 -  **Molecular Parsing** – Uses the *Atomic Simulation Environment (ASE)* to read `.xyz` files and construct `Atoms` objects containing atomic numbers and 3D coordinates. These standardized structures serve as inputs for Molecular descriptor generation.
 - **Coulomb Matrix Molecular Descriptor** – Converts each ASE `Atoms` object into a rotation- and permutation-invariant Coulomb matrix molecular descriptor using the `dscribe` library. This descriptor captures interatomic electrostatic interactions in a fixed numerical representation. 
@@ -24,7 +27,7 @@ For a full summary of methods and results, see the [project poster](Density_sens
 density_sensitivity-classification/
 ├── Descriptor1/
 │   ├── Descriptor1_complete_features.npy           — feature matrix (reaction eigenvalues + metadata)
-│   ├── Descriptor1_complete_targets.npy            — target labels for reactions (density sensitivity)
+│   └── Descriptor1_complete_targets.npy            — target labels for reactions (density sensitivity)
 │
 ├── descriptor1_model.ipynb                         — model training and evaluation notebook
 ├── dimensionality_reduction.ipynb                  — PCA, UMAP, and t-SNE notebook
