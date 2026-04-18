@@ -14,7 +14,7 @@ where reactions with $\tilde{s} \ge 2$ kcal/mol are classified as density-sensit
 
 Computing s̃ requires HF (O(N^4)) and LDA (O(N^3)) densities. We instead use machine learning as a surrogate to classify GMTKN55 [[5]](https://goerigk.chemistry.unimelb.edu.au/research/the-gmtkn55-database/) benchmark reactions as density-sensitive (s̃ ≥ 2) or density-insensitive (s̃ < 2) without explicitly evaluating s̃.
 
-This work was done as part of ML research in the Burke Group at UC Irvine.
+-This work was done as part of ML research in the Burke Group at UC Irvine.
 
   
 ## Project Overview
