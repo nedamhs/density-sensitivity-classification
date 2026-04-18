@@ -1,14 +1,23 @@
-# Density Sensitivity ML Pipeline
+# Density Sensitivity classification using Machine Learning
 
-A machine learning pipeline for binary classification of density sensitivity ($\tilde{s} \ge 2$ vs. $\tilde{s} < 2$) in GMTKN55 benchmark reactions, identifying cases where density-corrected DFT (DC-DFT) may be required.
+Density Functional Theory (DFT) is a quantum mechanical method that computes the energy of a system using its electron density instead of its full wavefunction.
 
-Computing s̃ requires HF (O(N^4)) and LDA (O(N^3)) densities. We instead use machine learning as a surrogate to classify GMTKN55 reactions as density-sensitive (s̃ ≥ 2) without explicitly evaluating s̃.
+For most DFT approximations, errors arise primarily from the functional (functional errors). However, in some systems, errors are dominated by inaccuracies in the electron density (density driven errors). These cases are known as density-sensitive.[[1]](https://dft.uci.edu/projects_DC.php)
 
 
-## 🔬 Project Overview
+To quantify density-driven errors in DFT, the density sensitivity metric $\tilde{S}$ is defined as: 
 
-This project implements a complete ML pipeline to predict whether chemical reactions are sensitive to changes in electron density.  
-Density-sensitive reactions are those where energy errors are driven by inaccuracies in the electron density, while density-insensitive reactions are those where errors arise primarily from the approximate functional form.
+$\tilde{S} = \left| \tilde{E}[n^{\mathrm{HF}}] - \tilde{E}[n^{\mathrm{LDA}}] \right|$ [[2]](https://pubs.acs.org/doi/10.1021/acs.jpclett.8b02855)
+
+where reactions with $\tilde{s} \ge 2$ kcal/mol are classified as density-sensitive. These cases are considered “abnormal”, and thus Density-Corrected Density Functional Theory (DC-DFT) is expected to improve results. [[1]](https://dft.uci.edu/projects_DC.php)
+
+
+Computing s̃ requires HF (O(N^4)) and LDA (O(N^3)) densities. We instead use machine learning as a surrogate to classify GMTKN55 [[5]](https://goerigk.chemistry.unimelb.edu.au/research/the-gmtkn55-database/) benchmark reactions as density-sensitive (s̃ ≥ 2) or density-insensitive (s̃ < 2) without explicitly evaluating s̃.
+
+This work was done as part of ML research in the Burke Group at UC Irvine.
+
+  
+## Project Overview
 
 The pipeline integrates physics-informed molecular encoding with modern ML techniques:
 
@@ -21,7 +30,7 @@ The pipeline integrates physics-informed molecular encoding with modern ML techn
 For a full summary of methods and results, see the [project poster](Density_sensitivity_classification_poster.pdf).
 
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 density_sensitivity-classification/
@@ -44,7 +53,7 @@ density_sensitivity-classification/
       
 ```
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Installation
 
@@ -66,7 +75,7 @@ python main.py
 ```
 
 ## Dependencies
-ASE, dscribe, NumPy, SciPy, scikit-learn, XGBoost, Matplotlib, Seaborn.
+ASE, dscribe, NumPy, scikit-learn, XGBoost, Matplotlib.
   
 ## 📈 Model Performance
 
@@ -84,10 +93,10 @@ The dataset exhibits a moderate class imbalance (~33% density-sensitive vs. ~67%
 ---
 
 
-## 📝 Data 
+## Data 
 
-- GMTKN55 database
-- SWARM dataset
+- GMTKN55 database from Goerigk Research Group
+- SWARM dataset from Burke Group
   
 
 ## 🙏 Acknowledgments
@@ -100,22 +109,31 @@ The dataset exhibits a moderate class imbalance (~33% density-sensitive vs. ~67%
 - <https://goerigk.chemistry.unimelb.edu.au/research/the-gmtkn55-database>
 
 ## Reference
-Goerigk, L.; Hansen, A.; Bauer, C.; Ehrlich, S.; Najibi, A.; Grimme, S.  
-*A look at the density functional theory zoo with the advanced GMTKN55 database for general main group thermochemistry, kinetics and noncovalent interactions.*  
-**Phys. Chem. Chem. Phys.** 2017, 19, 32184–32215.  
-DOI: [10.1039/C7CP04913G](https://doi.org/10.1039/C7CP04913G)
 
-Sim, E.; Song, S.; Burke, K.  
+[1] Burke, K.  
+*Density-Corrected Density Functional Theory.*  
+Burke Research Group, University of California, Irvine.  
+https://dft.uci.edu/projects_DC.php
+
+[2] Sim, E.; Song, S.; Burke, K.  
 *Quantifying density errors in DFT.*  
 **J. Phys. Chem. Lett.** 2018, 9 (22), 6385–6392.  
 DOI: [10.1021/acs.jpclett.8b02855](https://doi.org/10.1021/acs.jpclett.8b02855)
 
-Lee, M.; Kim, B.; Sim, M.; Sogal, M.; Kim, Y.; Yu, H.; Burke, K.; Sim, E.  
+[3] Lee, M.; Kim, B.; Sim, M.; Sogal, M.; Kim, Y.; Yu, H.; Burke, K.; Sim, E.  
 *Correcting dispersion corrections with density-corrected DFT.*  
 **J. Chem. Theory Comput.** 2024, 20 (16), 7155–7167.  
 DOI: [10.1021/acs.jctc.4c00689](https://doi.org/10.1021/acs.jctc.4c00689)
 
+[4] Sim, E.; Song, S.; Vuckovic, S.; Kim, Y.; Burke, K.  
+*Improving results by improving densities: Density-corrected density functional theory.*  
+**J. Am. Chem. Soc.** 2022, 144 (15), 6625–6639.  
+DOI: [10.1021/jacs.1c11506](https://doi.org/10.1021/jacs.1c11506)
+
+[4] Goerigk, L.; Hansen, A.; Bauer, C.; Ehrlich, S.; Najibi, A.; Grimme, S.  
+*A look at the density functional theory zoo with the advanced GMTKN55 database for general main group thermochemistry, kinetics and noncovalent interactions.*  
+**Phys. Chem. Chem. Phys.** 2017, 19, 32184–32215.  
+DOI: [10.1039/C7CP04913G](https://doi.org/10.1039/C7CP04913G)
 
 
 
- 
