@@ -12,7 +12,7 @@ $\tilde{S} = \left| \tilde{E}[n^{\mathrm{HF}}] - \tilde{E}[n^{\mathrm{LDA}}] \ri
 where reactions with $\tilde{s} \ge 2$ kcal/mol are classified as density-sensitive. These cases are considered “abnormal”, and thus Density-Corrected Density Functional Theory (DC-DFT) is expected to improve results. [[1]](https://dft.uci.edu/projects_DC.php)
 
 
-Computing s̃ requires HF (O(N^4)) and LDA (O(N^3)) densities. We instead use machine learning as a surrogate to classify GMTKN55 [[5]](https://goerigk.chemistry.unimelb.edu.au/research/the-gmtkn55-database/) benchmark reactions as density-sensitive (s̃ ≥ 2) or density-insensitive (s̃ < 2) without explicitly evaluating s̃.
+Computing s̃ requires HF (O(N^4)) and LDA (O(N^3)) densities. We instead use machine learning as a surrogate to classify GMTKN55 benchmark reactions as density-sensitive (s̃ ≥ 2) or density-insensitive (s̃ < 2) without explicitly evaluating s̃.
 
 -This work was done as part of ML research in the Burke Group at UC Irvine.
 
@@ -125,6 +125,8 @@ DOI: [10.1021/acs.jpclett.8b02855](https://doi.org/10.1021/acs.jpclett.8b02855)
 **J. Chem. Theory Comput.** 2024, 20 (16), 7155–7167.  
 DOI: [10.1021/acs.jctc.4c00689](https://doi.org/10.1021/acs.jctc.4c00689)
 
+<!-- 
+
 [4] Sim, E.; Song, S.; Vuckovic, S.; Kim, Y.; Burke, K.  
 *Improving results by improving densities: Density-corrected density functional theory.*  
 **J. Am. Chem. Soc.** 2022, 144 (15), 6625–6639.  
@@ -136,4 +138,4 @@ DOI: [10.1021/jacs.1c11506](https://doi.org/10.1021/jacs.1c11506)
 DOI: [10.1039/C7CP04913G](https://doi.org/10.1039/C7CP04913G)
 
 
-
+--> 
